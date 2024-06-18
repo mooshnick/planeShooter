@@ -23,13 +23,13 @@ public class Controller implements KeyListener {
 
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        if (e.getKeyCode() == KeyEvent.VK_D) {
             rightPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
             leftPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+        } else if (e.getKeyCode() == KeyEvent.VK_W) {
             upPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             downPressed = true;
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE && !spacePressed) {
             this.spacePressed = true;
@@ -41,13 +41,13 @@ public class Controller implements KeyListener {
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE){
             this.spacePressed = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_UP) {
+        }else if (e.getKeyCode() == KeyEvent.VK_W) {
             this.upPressed = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        }else if (e.getKeyCode() == KeyEvent.VK_A) {
             this.leftPressed = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        }else if (e.getKeyCode() == KeyEvent.VK_D) {
             this.rightPressed = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        }else if (e.getKeyCode() == KeyEvent.VK_S) {
             this.downPressed = false;
         }
     }
@@ -55,25 +55,25 @@ public class Controller implements KeyListener {
     public void update(){
         new Thread(()->{
             while (true){
-             if (upPressed){
-                 player.moveUp();
-                 if (rightPressed){
-                     player.moveRight();
-                 } else if (leftPressed) {
-                     player.moveLeft();
-                 }
-             } else if (downPressed) {
-                 player.moveDown();
-                 if (rightPressed){
-                     player.moveRight();
-                 } else if (leftPressed) {
-                     player.moveLeft();
-                 }
-             }else if (rightPressed){
-                 player.moveRight();
-             } else if (leftPressed) {
-                 player.moveLeft();
-             }
+                if (upPressed){
+                    player.moveUp();
+                    if (rightPressed){
+                        player.moveRight();
+                    } else if (leftPressed) {
+                        player.moveLeft();
+                    }
+                } else if (downPressed) {
+                    player.moveDown();
+                    if (rightPressed){
+                        player.moveRight();
+                    } else if (leftPressed) {
+                        player.moveLeft();
+                    }
+                }else if (rightPressed){
+                    player.moveRight();
+                } else if (leftPressed) {
+                    player.moveLeft();
+                }
                 this.scene.repaint();
                 try {
                     Thread.sleep(5);
